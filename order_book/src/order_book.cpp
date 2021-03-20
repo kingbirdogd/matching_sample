@@ -240,7 +240,10 @@ private:
 			matching_records records;
 			auto id = odr.id;
 			auto it = _odrs.find(id);
+			{
+				odr.status = StateType::REJECT;
 				return records;
+			}
 			auto ptr = &(it->second);
 			auto price = ptr->price;
 			auto side = ptr->side;
